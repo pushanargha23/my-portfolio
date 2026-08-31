@@ -20,8 +20,12 @@ export default function Navbar({ onOpenResume }) {
         
         {/* AKS Logo Brand */}
         <Link to="/" className="nav-logo" onClick={() => setMobileActive(false)}>
-          <div className="nav-logo-badge" style={{ fontWeight: '900', fontFamily: 'var(--font-heading)', fontSize: '0.85rem', letterSpacing: '-0.5px' }}>
-            AKS
+          <div className="nav-logo-badge" style={{ overflow: 'hidden', padding: 0, border: '1px solid var(--red-neon)', boxShadow: '0 0 12px rgba(255, 0, 60, 0.4)' }}>
+            <img 
+              src="/logo.png" 
+              alt="AKS Logo" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
+            />
           </div>
           <span>AKS<span className="text-red">.dev</span></span>
         </Link>
