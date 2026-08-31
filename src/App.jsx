@@ -10,6 +10,7 @@ import ProjectsPage from './pages/ProjectsPage.jsx';
 import EducationPage from './pages/EducationPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import Modals from './components/Modals.jsx';
+import MobileNavControls from './components/MobileNavControls.jsx';
 
 // Scroll to top helper on route navigation
 function ScrollToTop() {
@@ -54,6 +55,9 @@ export default function App() {
             <Route path="/contact" element={<ContactPage onShowToast={triggerToast} />} />
           </Routes>
         </main>
+
+        {/* Mobile-Only Next Page Controls & Dock */}
+        <MobileNavControls />
 
         {/* Global Footer */}
         <footer style={{ padding: '40px 0', borderTop: '1px solid var(--red-border)', background: 'var(--bg-dark)', marginTop: 'auto' }}>
