@@ -18,16 +18,19 @@ export default function Navbar({ onOpenResume }) {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         
-        {/* AKS Logo Brand */}
-        <Link to="/" className="nav-logo" onClick={() => setMobileActive(false)}>
-          <div className="nav-logo-badge" style={{ overflow: 'hidden', padding: 0, border: '1px solid var(--red-neon)', boxShadow: '0 0 12px rgba(255, 0, 60, 0.4)' }}>
-            <img 
-              src="/logo.png" 
-              alt="AKS Logo" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
-            />
-          </div>
-          <span>AKS<span className="text-red">.dev</span></span>
+        {/* Standalone Logo Image in Original Shape */}
+        <Link to="/" className="nav-logo" onClick={() => setMobileActive(false)} style={{ padding: 0, background: 'none' }}>
+          <img 
+            src="/logo.png" 
+            alt="AKS Logo" 
+            style={{ 
+              height: '46px', 
+              width: 'auto', 
+              display: 'block', 
+              borderRadius: '0', 
+              filter: 'drop-shadow(0 0 10px rgba(255, 0, 60, 0.45))'
+            }}
+          />
         </Link>
 
         <ul className={`nav-links ${mobileActive ? 'mobile-active' : ''}`}>
