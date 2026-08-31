@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Modals({ activeProject, onCloseProjectModal, isResumeOpen, onCloseResumeModal }) {
+  const [viewPdfMode, setViewPdfMode] = useState(true);
+
   const projectDetails = {
     'skipit-backend': {
       title: 'SkipIt Backend (ARMB)',
@@ -144,98 +146,157 @@ export default function Modals({ activeProject, onCloseProjectModal, isResumeOpe
         }} onClick={onCloseResumeModal}>
           <div style={{
             background: 'var(--bg-secondary)', border: '1px solid var(--red-border)',
-            borderRadius: 'var(--radius-md)', maxWidth: '850px', width: '100%',
+            borderRadius: 'var(--radius-md)', maxWidth: '920px', width: '100%',
             maxHeight: '90vh', overflowY: 'auto', padding: '36px', position: 'relative',
             boxShadow: '0 25px 60px rgba(0,0,0,0.85)'
           }} onClick={(e) => e.stopPropagation()}>
+            
             <button onClick={onCloseResumeModal} style={{
               position: 'absolute', top: '20px', right: '20px', width: '36px', height: '36px',
               borderRadius: '50%', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)',
-              color: 'var(--text-muted)', cursor: 'pointer'
+              color: 'var(--text-muted)', cursor: 'pointer', zIndex: 10
             }}>
               <i className="fa-solid fa-xmark"></i>
             </button>
 
-            <div style={{ textAlign: 'center', marginBottom: '24px', paddingBottom: '16px', borderBottom: '1px solid var(--border-color)' }}>
-              <h2 style={{ fontSize: '2.2rem', marginBottom: '6px' }}>Argha Kamal Saha</h2>
-              <div style={{ color: 'var(--red-bright)', fontFamily: 'var(--font-mono)', fontSize: '0.92rem', fontWeight: '600' }}>
-                Computer Science & Engineering Student | Full-Stack & Database Developer
-              </div>
-              <div style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginTop: '6px' }}>
-                Kolkata, India • +91 7890735867 • arghakamal.527@gmail.com • github.com/pushanargha
-              </div>
-            </div>
-
-            <div style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.7' }}>
-              <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
-                  Professional Summary
-                </h4>
-                <p>
-                  Tech-driven and detail-oriented Computer Science and Engineering student with knowledge of programming, machine learning, deep learning, web development, and competitive coding. Strong foundation in problem-solving and analytical thinking, with hands-on experience in full-stack development and database technologies gained through internships.
-                </p>
-              </div>
-
-              <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
-                  Experience
-                </h4>
-                <div style={{ marginBottom: '12px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
-                    <span>Intern — South Eastern Railway</span>
-                    <span>July 2026 – August 2026</span>
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--red-bright)' }}>Garden Reach, West Bengal, India | On-site</div>
-                  <ul style={{ marginTop: '6px', paddingLeft: '18px' }}>
-                    <li>Selected for the competitive Summer Internship Programme in I.T. & Computer Science.</li>
-                    <li>Worked hands-on with Oracle Database, writing and optimizing SQL queries to support enterprise IT operations.</li>
-                    <li>Analyzed enterprise database systems to support day-to-day IT operations and reporting workflows.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
-                    <span>Intern — ARMB</span>
-                    <span>January 2026 – July 2026</span>
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--white)' }}>Remote</div>
-                  <ul style={{ marginTop: '6px', paddingLeft: '18px' }}>
-                    <li>Developed full-stack application features using Python and modern web development tools.</li>
-                    <li>Collaborated with team members on ongoing software and web development initiatives spanning frontend and backend.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
-                  Education
-                </h4>
-                <div style={{ marginBottom: '10px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
-                    <span>MCKV Institute of Engineering, Liluah, Howrah</span>
-                    <span>Aug 2023 – Apr 2027</span>
-                  </div>
-                  <div>B.Tech in Computer Science and Engineering (CSE)</div>
-                </div>
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
-                    <span>Elite Co-Ed (Higher Secondary), Bandel</span>
-                    <span>2010 – 2023</span>
-                  </div>
-                  <div>WBCHSE (PCMB), 2021 – 2023 • WBBSE, 2010 – 2021</div>
-                </div>
-              </div>
-
+            {/* Resume Header & Action Buttons */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '20px', paddingBottom: '16px', borderBottom: '1px solid var(--border-color)' }}>
               <div>
-                <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
-                  Technical Skills
-                </h4>
-                <p><strong>Languages:</strong> Java, Python, C</p>
-                <p><strong>Web Development:</strong> React.js, Node.js, HTML, CSS, JavaScript, Tailwind CSS</p>
-                <p><strong>Database:</strong> Oracle Database, SQL</p>
-                <p><strong>AI / ML:</strong> Machine Learning, Deep Learning</p>
+                <h2 style={{ fontSize: '1.8rem', marginBottom: '4px' }}>Argha Kamal Saha - Resume</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Full-Stack Java Developer & Software Engineer</p>
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <a 
+                  href="/resume.pdf" 
+                  download="Argha_Kamal_Saha_Resume.pdf"
+                  className="btn-mb-primary"
+                  style={{ padding: '8px 18px', fontSize: '0.88rem' }}
+                >
+                  <i className="fa-solid fa-download"></i> Download PDF
+                </a>
+                <a 
+                  href="/resume.pdf" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="btn-mb-secondary"
+                  style={{ padding: '8px 18px', fontSize: '0.88rem' }}
+                >
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i> Open in New Tab
+                </a>
               </div>
             </div>
+
+            {/* Mode Switcher Buttons */}
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+              <button
+                onClick={() => setViewPdfMode(true)}
+                style={{
+                  background: viewPdfMode ? 'var(--red-neon)' : 'rgba(255,255,255,0.05)',
+                  color: '#fff',
+                  border: '1px solid var(--red-border)',
+                  padding: '6px 16px',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '0.85rem',
+                  fontFamily: 'var(--font-mono)',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fa-solid fa-file-pdf"></i> PDF Document View
+              </button>
+              <button
+                onClick={() => setViewPdfMode(false)}
+                style={{
+                  background: !viewPdfMode ? 'var(--red-neon)' : 'rgba(255,255,255,0.05)',
+                  color: '#fff',
+                  border: '1px solid var(--red-border)',
+                  padding: '6px 16px',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '0.85rem',
+                  fontFamily: 'var(--font-mono)',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fa-solid fa-align-left"></i> Web Summary View
+              </button>
+            </div>
+
+            {/* Content Rendering: PDF iFrame OR Web Text Summary */}
+            {viewPdfMode ? (
+              <div style={{ width: '100%', height: '620px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
+                <iframe 
+                  src="/resume.pdf" 
+                  title="Argha Kamal Saha Resume PDF"
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 'none' }}
+                ></iframe>
+              </div>
+            ) : (
+              <div style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.7' }}>
+                <div style={{ marginBottom: '20px' }}>
+                  <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
+                    Professional Summary
+                  </h4>
+                  <p>
+                    Tech-driven and detail-oriented Computer Science and Engineering student with knowledge of programming, machine learning, deep learning, web development, and competitive coding. Strong foundation in problem-solving and analytical thinking, with hands-on experience in full-stack development and database technologies gained through internships.
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: '20px' }}>
+                  <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
+                    Experience
+                  </h4>
+                  <div style={{ marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
+                      <span>Intern — South Eastern Railway</span>
+                      <span>July 2026 – August 2026</span>
+                    </div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--red-bright)' }}>Garden Reach, West Bengal, India | On-site</div>
+                    <ul style={{ marginTop: '6px', paddingLeft: '18px' }}>
+                      <li>Selected for the competitive Summer Internship Programme in I.T. & Computer Science.</li>
+                      <li>Worked hands-on with Oracle Database, writing and optimizing SQL queries to support enterprise IT operations.</li>
+                      <li>Analyzed enterprise database systems to support day-to-day IT operations and reporting workflows.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
+                      <span>Intern — ARMB</span>
+                      <span>January 2026 – July 2026</span>
+                    </div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--white)' }}>Remote</div>
+                    <ul style={{ marginTop: '6px', paddingLeft: '18px' }}>
+                      <li>Engineered backend microservices for SkipIt (Java 17, Spring Boot 4.0.5, MapStruct, OpenAPI 3) and Gulum (Spring Boot 4, WebSockets, PostgreSQL, Apache POI).</li>
+                      <li>Collaborated with team members on ongoing software and web development initiatives.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: '20px' }}>
+                  <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
+                    Education
+                  </h4>
+                  <div style={{ marginBottom: '10px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-primary)', fontWeight: '600' }}>
+                      <span>MCKV Institute of Engineering, Liluah, Howrah</span>
+                      <span>Aug 2023 – Apr 2027</span>
+                    </div>
+                    <div>B.Tech in Computer Science and Engineering (CSE)</div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 style={{ color: 'var(--red-bright)', fontSize: '1.1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '4px', marginBottom: '8px' }}>
+                    Technical Skills
+                  </h4>
+                  <p><strong>Languages:</strong> Java 17, Python, C</p>
+                  <p><strong>Frameworks & Web:</strong> Spring Boot 4, Spring Security JWT, React.js, Node.js, Tailwind CSS</p>
+                  <p><strong>Databases:</strong> PostgreSQL, Oracle Database, SQL Query Optimization</p>
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
       )}
