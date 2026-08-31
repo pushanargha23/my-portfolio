@@ -17,11 +17,13 @@ export default function Navbar({ onOpenResume }) {
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
+        
+        {/* AKS Logo Brand */}
         <Link to="/" className="nav-logo" onClick={() => setMobileActive(false)}>
-          <div className="nav-logo-badge">
-            <i className="fa-solid fa-code"></i>
+          <div className="nav-logo-badge" style={{ fontWeight: '900', fontFamily: 'var(--font-heading)', fontSize: '0.85rem', letterSpacing: '-0.5px' }}>
+            AKS
           </div>
-          <span>Argha<span className="text-red">.dev</span></span>
+          <span>AKS<span className="text-red">.dev</span></span>
         </Link>
 
         <ul className={`nav-links ${mobileActive ? 'mobile-active' : ''}`}>
