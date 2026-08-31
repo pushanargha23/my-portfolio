@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
 const routesSequence = [
@@ -13,6 +13,19 @@ const routesSequence = [
 
 export default function MobileNavControls() {
   const { pathname } = useLocation();
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Return null on desktop so 0 HTML nodes are rendered
+  if (!isMobile) return null;
 
   return (
     <div className="mobile-nav-controls-wrapper">
