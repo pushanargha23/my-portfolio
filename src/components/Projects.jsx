@@ -21,7 +21,7 @@ export default function Projects({ onOpenProjectModal }) {
       desc: 'Institutional management platform backend built with Java 17, Spring Boot 4, PostgreSQL, Spring Security JWT, WebSockets, and Apache POI for educational institutions.',
       tech: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Spring Security JWT', 'WebSockets', 'Apache POI'],
       github: 'https://github.com/pushanargha',
-      liveUrl: 'https://gulum-web.armb.cloud/login'
+      liveUrl: 'https://gulum-web.armb.cloud'
     },
     {
       id: 'kode-rise',
