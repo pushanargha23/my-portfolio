@@ -29,7 +29,8 @@ export default function Modals({ activeProject, onCloseProjectModal, isResumeOpe
         'Built STOMP WebSocket handlers for real-time notifications & Apache POI for automated Excel reporting'
       ],
       tech: ['Java 17', 'Spring Boot 4', 'PostgreSQL', 'Spring Security JWT', 'STOMP WebSockets', 'Apache POI', 'Lombok'],
-      github: 'https://github.com/pushanargha'
+      github: 'https://github.com/pushanargha',
+      liveUrl: 'https://gulum-web.armb.cloud/login'
     },
     'kode-rise': {
       title: 'Kode and Rise',
@@ -130,9 +131,28 @@ export default function Modals({ activeProject, onCloseProjectModal, isResumeOpe
               ))}
             </div>
 
-            <a href={currentProject.github} target="_blank" rel="noreferrer" className="btn-mb-primary" style={{ padding: '10px 22px', fontSize: '0.9rem' }}>
-              <i className="fa-brands fa-github"></i> View GitHub Repository
-            </a>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              {currentProject.liveUrl && (
+                <a
+                  href={currentProject.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-mb-primary"
+                  style={{ padding: '10px 22px', fontSize: '0.9rem' }}
+                >
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i> Visit Live App / Login
+                </a>
+              )}
+              <a
+                href={currentProject.github}
+                target="_blank"
+                rel="noreferrer"
+                className={currentProject.liveUrl ? "btn-mb-secondary" : "btn-mb-primary"}
+                style={{ padding: '10px 22px', fontSize: '0.9rem' }}
+              >
+                <i className="fa-brands fa-github"></i> View GitHub Repository
+              </a>
+            </div>
           </div>
         </div>
       )}

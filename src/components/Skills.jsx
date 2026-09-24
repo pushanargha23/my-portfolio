@@ -12,22 +12,23 @@ export default function Skills() {
       ]
     },
     {
-      title: 'Web Development',
+      title: 'Backend & Web Frameworks',
       icon: 'fa-solid fa-laptop-code',
       skills: [
+        { name: 'Spring Boot', icon: 'fa-solid fa-leaf', color: '#6DB33F' },
         { name: 'React.js', icon: 'fa-brands fa-react', color: '#61dafb' },
         { name: 'Node.js', icon: 'fa-brands fa-node-js', color: '#68a063' },
         { name: 'JavaScript', icon: 'fa-brands fa-js', color: '#f7df1e' },
-        { name: 'HTML5 / CSS3', icon: 'fa-brands fa-html5', color: '#EF233C' },
-        { name: 'Tailwind CSS', icon: 'fa-solid fa-wind', color: '#38bdf8' }
+        { name: 'Tailwind CSS', icon: 'fa-solid fa-wind', color: '#38bdf8' },
+        { name: 'HTML5 / CSS3', icon: 'fa-brands fa-html5', color: '#EF233C' }
       ]
     },
     {
       title: 'Databases & AI / ML',
       icon: 'fa-solid fa-database',
       skills: [
-        { name: 'Spring Boot', icon: 'fa-solid fa-leaf', color: '#6DB33F' },
-        { name: 'MongoDB', icon: 'fa-solid fa-database', color: '#47A248' },
+        { name: 'MongoDB (NoSQL)', icon: 'fa-solid fa-database', color: '#47A248' },
+        { name: 'PostgreSQL', icon: 'fa-solid fa-server', color: '#4169E1' },
         { name: 'Oracle Database', icon: 'fa-solid fa-server', color: '#D90429' },
         { name: 'Machine Learning', icon: 'fa-solid fa-brain', color: '#FF758F' },
         { name: 'Deep Learning', icon: 'fa-solid fa-network-wired', color: '#EF233C' }

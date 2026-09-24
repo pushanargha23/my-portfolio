@@ -20,7 +20,8 @@ export default function Projects({ onOpenProjectModal }) {
       badge: 'Enterprise / Spring Boot',
       desc: 'Institutional management platform backend built with Java 17, Spring Boot 4, PostgreSQL, Spring Security JWT, WebSockets, and Apache POI for educational institutions.',
       tech: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Spring Security JWT', 'WebSockets', 'Apache POI'],
-      github: 'https://github.com/pushanargha'
+      github: 'https://github.com/pushanargha',
+      liveUrl: 'https://gulum-web.armb.cloud/login'
     },
     {
       id: 'kode-rise',
@@ -132,7 +133,31 @@ export default function Projects({ onOpenProjectModal }) {
                 {p.badge}
               </div>
 
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '12px', color: 'var(--text-primary)' }}>{p.title}</h3>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>
+                {p.liveUrl ? (
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      color: 'var(--text-primary)',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      transition: 'var(--transition-fast)'
+                    }}
+                    title="Direct redirect to live application"
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--red-bright)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+                  >
+                    <span>{p.title}</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.85rem', color: 'var(--red-bright)' }}></i>
+                  </a>
+                ) : (
+                  <span style={{ color: 'var(--text-primary)' }}>{p.title}</span>
+                )}
+              </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '24px', flexGrow: 1, lineHeight: '1.6' }}>
                 {p.desc}
               </p>
@@ -159,28 +184,94 @@ export default function Projects({ onOpenProjectModal }) {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 paddingTop: '16px',
-                borderTop: '1px solid var(--border-color)'
+                borderTop: '1px solid var(--border-color)',
+                flexWrap: 'wrap',
+                gap: '12px'
               }}>
-                <a href={p.github} target="_blank" rel="noreferrer" style={{ color: 'var(--text-muted)', fontSize: '1.1rem', transition: 'var(--transition-fast)' }} title="GitHub Repo">
-                  <i className="fa-brands fa-github"></i>
-                </a>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ color: 'var(--text-muted)', fontSize: '1.15rem', transition: 'var(--transition-fast)' }}
+                      title="GitHub Repository"
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--white)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+                    >
+                      <i className="fa-brands fa-github"></i>
+                    </a>
+                  )}
+                  {p.liveUrl && (
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ color: 'var(--red-bright)', fontSize: '1.1rem', transition: 'var(--transition-fast)' }}
+                      title="Direct Live Link / Login"
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--red-bright)')}
+                    >
+                      <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                  )}
+                </div>
 
-                <button
-                  onClick={() => onOpenProjectModal(p.id)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--red-bright)',
-                    fontSize: '0.88rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px'
-                  }}
-                >
-                  Details <i className="fa-solid fa-arrow-right"></i>
-                </button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  {p.liveUrl && (
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '6px 14px',
+                        borderRadius: 'var(--radius-sm)',
+                        background: 'rgba(255, 0, 60, 0.12)',
+                        border: '1px solid var(--red-border)',
+                        color: 'var(--red-bright)',
+                        fontSize: '0.82rem',
+                        fontWeight: '600',
+                        textDecoration: 'none',
+                        transition: 'var(--transition-fast)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'var(--grad-red)';
+                        e.currentTarget.style.color = '#ffffff';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(255, 0, 60, 0.12)';
+                        e.currentTarget.style.color = 'var(--red-bright)';
+                      }}
+                      title="Direct redirect to live page"
+                    >
+                      <span>Live App</span>
+                      <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.72rem' }}></i>
+                    </a>
+                  )}
+
+                  <button
+                    onClick={() => onOpenProjectModal(p.id)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--text-muted)',
+                      fontSize: '0.88rem',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      transition: 'var(--transition-fast)'
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--white)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+                  >
+                    Details <i className="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
