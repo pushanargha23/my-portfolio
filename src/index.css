@@ -823,6 +823,7 @@ section {
     width: 100%;
     justify-content: center;
   }
+}
 
 /* Mobile Navigation Controls (Strict Desktop Hide) */
 .mobile-nav-controls-wrapper,

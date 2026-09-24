@@ -292,7 +292,7 @@ export default function Modals({ activeProject, onCloseProjectModal, isResumeOpe
                   </h4>
                   <p><strong>Languages:</strong> Java 17, Python, C</p>
                   <p><strong>Frameworks & Web:</strong> Spring Boot 4, Spring Security JWT, React.js, Node.js, Tailwind CSS</p>
-                  <p><strong>Databases:</strong> PostgreSQL, Oracle Database, SQL Query Optimization</p>
+                  <p><strong>Databases:</strong> MongoDB, PostgreSQL, Oracle Database, SQL Query Optimization</p>
                 </div>
               </div>
             )}

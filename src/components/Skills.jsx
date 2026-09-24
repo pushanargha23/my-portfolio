@@ -26,6 +26,8 @@ export default function Skills() {
       title: 'Databases & AI / ML',
       icon: 'fa-solid fa-database',
       skills: [
+        { name: 'Spring Boot', icon: 'fa-solid fa-leaf', color: '#6DB33F' },
+        { name: 'MongoDB', icon: 'fa-solid fa-database', color: '#47A248' },
         { name: 'Oracle Database', icon: 'fa-solid fa-server', color: '#D90429' },
         { name: 'Machine Learning', icon: 'fa-solid fa-brain', color: '#FF758F' },
         { name: 'Deep Learning', icon: 'fa-solid fa-network-wired', color: '#EF233C' }

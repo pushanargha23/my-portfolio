@@ -109,7 +109,7 @@ export default function TerminalWidget() {
             <div style={{ paddingLeft: '16px', color: 'var(--text-muted)', lineHeight: '1.8' }}>
               [✓] Backend: Java 17, Spring Boot 4, Spring Security JWT, MapStruct<br />
               [✓] Frontend: React.js, Node.js, JavaScript, Tailwind CSS<br />
-              [✓] Databases: PostgreSQL, Oracle Database, SQL Optimization<br />
+              [✓] Databases: MongoDB, PostgreSQL, Oracle Database, SQL Optimization<br />
               [✓] Real-Time & Docs: STOMP WebSockets, OpenAPI 3 / Swagger<br />
             </div>
           </div>
